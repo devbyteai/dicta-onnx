@@ -20,9 +20,28 @@ pip install -U dicta-onnx
 
 ## Usage
 
-1. Install the library
-2. Download model from [model-files-v1.0](https://github.com/thewh1teagle/dicta-onnx/releases/model-files-v1.0) and put in the directory
-3. Run one of the examples from [examples](examples) folder
+```python
+from dicta_onnx import Dicta
+
+# Model auto-downloads on first use (~1.2GB to ~/.cache/dicta/)
+dicta = Dicta()
+
+text = "שלום עולם"
+result = dicta.add_diacritics(text)
+print(result)  # שָׁלוֹם עוֹלָם
+```
+
+### Custom model path
+
+```python
+# Use environment variable
+# export DICTA_MODEL_PATH=/path/to/dicta-1.0.onnx
+
+# Or pass directly
+dicta = Dicta(model_path="./dicta-1.0.onnx")
+```
+
+See more examples in [examples](examples) folder
 
 ## Play
 
